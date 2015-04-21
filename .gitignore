@@ -1,0 +1,7 @@
+# There's a lot of stuff in here until I decide whether or not to use ScrollMagic
+css/examples.css
+js/plugins
+js/ScrollMagic.min.js
+js/ScrollToPlugin.min.js
+example.html
+example2.html

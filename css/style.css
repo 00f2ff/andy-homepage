@@ -1,0 +1,104 @@
+@font-face {
+	font-family: GothamRounded;
+	font-weight: bold;
+	src: url('gotham-rounded-bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: GothamRounded;
+	src: url('gotham-rounded-book.ttf') format('truetype');
+}
+
+html {
+	font-family: GothamRounded;
+	background-color: #1B1B1B;
+	color: white;
+	overflow: hidden;
+}
+
+#site-wrapper {
+	position: relative;
+}
+
+section {}
+
+/************** FONT SIZES **************/
+.big {
+	font-size: 88px;
+	font-size: 5.5em;
+}
+
+.medium {
+	font-size: 72px;
+	font-size: 4.5em;
+}
+
+.small {
+	font-size: 56px;
+	font-size: 3.5em;
+}
+
+.tiny {
+
+}
+
+/************** ANIMATIONS **************/
+
+#scene1 {
+	margin-top: 35vh;
+	margin-left: 17vw;
+}
+
+/* This moves the text1 children into place */
+@-webkit-keyframes swooshUp {
+	0% { margin-top: 100vh; }
+	100% { margin-top: 0vh; }
+}
+
+#scene1-first {
+	-webkit-animation: swooshUp 0.65s linear;
+}
+
+#scene1-second {
+	-webkit-animation: swooshUp 0.8s linear;
+}
+
+#scene1-third {
+	-webkit-animation: swooshUp 1.15s linear;
+}
+
+@-webkit-keyframes sceneSwooshUp {
+	0% { margin-top: 35vh; }
+	100% { margin-top: -70vh; } /* this is arbitrary */
+}
+
+@-webkit-keyframes fadeIn {
+	0% { opacity: 0;  }
+	50% { opacity: 0;  }
+	100% { opacity: 1;  }
+}
+
+@-webkit-keyframes fadeOut {
+	0% { opacity: 1;  }
+	50% { opacity: 1;  }
+	100% { opacity: 0;  }
+}
+
+#arrow {
+	text-align: center;
+}
+
+#arrow svg {
+	
+	position: fixed;
+	bottom: 10px;
+	/*width: 70px;
+	height: 30px;*/
+}
+
+/* Remember that this is only true the first time around */
+#arrow svg line {
+	-webkit-animation: fadeIn 3s linear forwards;
+}
+
+/* Remember that 'forwards' makes animations permanent */

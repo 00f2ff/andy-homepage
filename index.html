@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Planetary Pioneering</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+<body>
+<!--
+This site is about pressing down buttons to initiate animations.
+That means it's not going to rely on scrolling per se, but will need ScrollTo to do that downward swish movement
+Or... I can move elements out of the page and elimate them, giving the appearance of a scroll but really keeping it on one page.
+I like that idea better because it can rely entirely on CSS animations and keyframes
+-->
+<!-- <img src="img/baby.svg"> -->
+<div id="site-wrapper">
+	
+	<section class="story" id="scene1">
+		<div id="scene1-first"><span class="big">humanity</span></div>
+		<div id="scene1-second"><span class="small">is a</span></div>
+		<div id="scene1-third"><span class="medium">curious species.</span></div>
+	</section>
+	<!-- <div id="arrow"><img src="img/arrow.svg"></div> -->
+	<div id="arrow"><svg version="1.1" class="active" data-scene="1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="70px" height="30px" viewBox="0 0 20 10" enable-background="new 0 0 20 10" xml:space="preserve">
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="3.157" y1="1.531" x2="10.559" y2="8.934"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="17.279" y1="1.531" x2="9.876" y2="8.934"/>
+	</svg></div>
+</div>
+
+
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<!-- <script src="js/TweenMax.min.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/plugins/animation.gsap.min.js"></script>
+<script src="js/plugins/animation.velocity.min.js"></script>
+<script src="js/plugins/debug.addIndicators.min.js"></script> -->
+<!-- <script src="js/plugins/jquery.ScrollMagic.min.js"></script> -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
