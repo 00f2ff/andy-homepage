@@ -45,7 +45,7 @@ section {}
 /************** ANIMATIONS **************/
 
 #scene1 {
-	margin-top: 35vh;
+	margin-top: 25vh;
 	margin-left: 17vw;
 }
 
@@ -56,19 +56,19 @@ section {}
 }
 
 #scene1-first {
-	-webkit-animation: swooshUp 0.65s linear;
+	-webkit-animation: swooshUp 0.55s linear;
 }
 
 #scene1-second {
-	-webkit-animation: swooshUp 0.8s linear;
+	-webkit-animation: swooshUp 0.7s linear;
 }
 
 #scene1-third {
-	-webkit-animation: swooshUp 1.15s linear;
+	-webkit-animation: swooshUp 1.05s linear;
 }
 
 @-webkit-keyframes sceneSwooshUp {
-	0% { margin-top: 35vh; }
+	0% { margin-top: 25vh; }
 	100% { margin-top: -70vh; } /* this is arbitrary */
 }
 
@@ -91,7 +91,7 @@ section {}
 #arrow svg {
 	
 	position: fixed;
-	bottom: 10px;
+	bottom: 10vh;
 	/*width: 70px;
 	height: 30px;*/
 }
