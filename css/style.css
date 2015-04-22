@@ -13,7 +13,7 @@ html {
 	font-family: GothamRounded;
 	background-color: #1B1B1B;
 	color: white;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 #site-wrapper {
@@ -45,8 +45,12 @@ section {}
 /************** ANIMATIONS **************/
 
 #scene1 {
+	/*position: absolute;*/
+	display: block;
 	margin-top: 25vh;
-	margin-left: 17vw;
+
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* This moves the text1 children into place */
@@ -94,6 +98,7 @@ section {}
 	bottom: 10vh;
 	/*width: 70px;
 	height: 30px;*/
+
 }
 
 /* Remember that this is only true the first time around */
