@@ -20,7 +20,83 @@ html {
 	position: relative;
 }
 
-section {}
+section {
+	position: inherit;
+	width: 100%;
+	height: 100vh;
+}
+
+/* This will need a load of media queries later */
+/*.carousel {
+	position: relative;
+	width: 100%;
+}*/
+
+.carousel img { /* This isn't consolidated in case I want to make the slideshow inside of a div like spacex */
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+}
+
+/*
+From http://css3.bradshawenterprises.com/cfimg/   
+For "n" images You must define:
+a=presentation time for one image
+b=duration for cross fading
+Total animation-duration is of course t=(a+b)*n
+
+animation-delay = t/n or = a+b
+
+a = 5
+b = 2
+n = 3
+t = 21
+
+Percentage for keyframes:
+
+0%
+a/t*100% = 20%
+(a+b)/t*100% = 1/n*100% = 33.33333%
+100%-(b/t*100%) = 86.66666%
+100%
+*/
+
+@-webkit-keyframes crossFade {
+  0% {
+    opacity:1;
+  }
+  20% {
+    opacity:1;
+  }
+  33% {
+    opacity:0;
+  }
+  87% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.carousel img {
+-webkit-animation-name: crossFade;
+-webkit-animation-timing-function: ease-in;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-duration: 21s;
+-webkit-animation-direction: normal;
+}
+
+.carousel img:nth-of-type(1) {
+  -webkit-animation-delay: 14s;
+}
+.carousel img:nth-of-type(2) {
+  -webkit-animation-delay: 7s;
+}
+.carousel img:nth-of-type(3) {
+  -webkit-animation-delay: 0s;
+}
 
 /************** FONT SIZES **************/
 .big {
@@ -47,33 +123,39 @@ section {}
 #scene1 {
 	/*position: absolute;*/
 	display: block;
-	margin-top: 25vh;
+	/*padding-top: 25vh;*/
 
 	margin-left: auto;
 	margin-right: auto;
 }
 
-/* This moves the text1 children into place */
-@-webkit-keyframes swooshUp {
-	0% { margin-top: 100vh; }
+.scene-wrapper {
+	position: absolute;
+	/*top: 25vh;*/
+}
+
+/* This moves the scene children into place */
+@-webkit-keyframes swooshUpFirst {
+	0% { margin-top: 125vh; }
+	100% { margin-top: 25vh; }
+}
+@-webkit-keyframes swooshUpRest {
+	0% { margin-top: 125vh; }
 	100% { margin-top: 0vh; }
 }
 
 #scene1-first {
-	-webkit-animation: swooshUp 0.55s linear;
-}
-
-#scene1-second {
-	-webkit-animation: swooshUp 0.7s linear;
-}
-
-#scene1-third {
-	-webkit-animation: swooshUp 1.05s linear;
+	margin-top: 125vh;
 }
 
 @-webkit-keyframes sceneSwooshUp {
-	0% { margin-top: 25vh; }
-	100% { margin-top: -70vh; } /* this is arbitrary */
+	0% { margin-top: 0vh; }
+	100% { margin-top: -100vh; }
+}
+
+@-webkit-keyframes sceneSwooshDown {
+	0% { margin-top: -100vh; }
+	100% { margin-top: 0vh; }
 }
 
 @-webkit-keyframes fadeIn {
@@ -94,8 +176,8 @@ section {}
 
 #arrow svg {
 	
-	position: fixed;
-	bottom: 10vh;
+	position: absolute;
+	top: 90vh;
 	/*width: 70px;
 	height: 30px;*/
 
@@ -103,7 +185,7 @@ section {}
 
 /* Remember that this is only true the first time around */
 #arrow svg line {
-	-webkit-animation: fadeIn 3s linear forwards;
+	/*-webkit-animation: fadeIn 2s linear forwards;*/
 }
 
 /* Remember that 'forwards' makes animations permanent */
