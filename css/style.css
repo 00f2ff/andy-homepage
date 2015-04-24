@@ -26,6 +26,24 @@ section {
 	height: 100vh;
 }
 
+/* for navigation */
+ul { /* this will need to become a hamburger on mobile */
+	position: absolute;
+	top: 10vh;
+	right: 5%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+li {
+	display: inline;
+	padding: 20px 25px;
+}
+a {
+	text-decoration: none;
+	color: white;
+}
+
 .story {
 	display: block;
 	margin-left: auto;
@@ -115,7 +133,7 @@ a/t*100% = 20%
 }
 
 .tiny {
-
+	font-size: 1.7em; /* should probably be 1.5em and a links have their own font-size */
 }
 
 /************** ANIMATIONS **************/

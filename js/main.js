@@ -59,7 +59,7 @@ $(function() {
 	$(window).scroll(function(e) {
 		var current_scroll = $(window).scrollTop();
 		// fade out arrow before next section
-		if (current_scroll >= current_scene * $(window).height() + 20 && current_scroll <= current_scene * $(window).height() + 40) {
+		if (current_scroll >= current_scene * $(window).height() + 40 && current_scroll <= current_scene * $(window).height() + 60) {
 			$('#arrow svg').css('-webkit-animation', 'fadeOut 0.6s linear forwards');
 		} 
 		// Check if user is scrolling down
@@ -88,7 +88,7 @@ $(function() {
 				// only bring arrow back
 				$('#arrow svg').css({'-webkit-animation': '', 'opacity': 1, 'top': '90vh'});
 				// check if animations need to reset (because in previous scene)
-				if (current_scroll <= (current_scene-1) * $(window).height() + 20) {
+				if (current_scroll <= (current_scene-1) * $(window).height() + 40) {
 					// show next scene's children again and remove animation
 					$('#scene'+current_scene).children().css({'opacity': '1', '-webkit-animation': ''});
 					// reset style ** NOTE: this is hardcoded right now...
