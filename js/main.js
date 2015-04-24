@@ -4,8 +4,9 @@ $(function() {
 	 * I may want to move this up a file along with the scroll tracking stuff
 	 */
 	// This sets margins for #scene1 children
-	$('#scene1 .small').css('margin-left', $('#scene1 .big').width() - $('#scene1 .small').width() / 4 + 'px');
-	$('#scene1 .medium').css('margin-left', $('#scene1 .small').css('margin-left'));
+	$('#scene1 .small, .medium').css('margin-left', $('#scene1 .big').width() - $('#scene1 .small').width() / 4 + 'px');
+	// 	$('#scene1 .small, .medium').css('margin-left', $('#scene1 .big').width() - sw / 4 + 'px');
+
 	// Set width for its section
 	$('#scene1').css('width',$('#scene1 .big').width() + $('#scene1 .medium').width() + $('#scene1 .small').width()+ 'px');
 
