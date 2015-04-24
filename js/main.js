@@ -57,21 +57,48 @@ $(function() {
 	 * will == a value every time.
 	 */
 	$(window).scroll(function(e) {
+		var current_scroll = $(window).scrollTop();
 		// fade out arrow before next section
-		if ($(window).scrollTop() >= 20 && $(window).scrollTop() <= 40) {
+		if (current_scroll >= (current_scene-1) * $(window).height() + 20 && current_scroll <= (current_scene-1) * $(window).height() + 40) {
 			$('#arrow svg').css('-webkit-animation', 'fadeOut 0.6s linear forwards');
 		} 
-		if ($(window).scrollTop() >= current_scene * $(window).height() && $(window).scrollTop() <= current_scene * $(window).height() + 20) {
-			console.log('hi');
-			// initializeScene(current_scene); // don't abstract this because it may load after the handler 
-			if (current_scene === 1) {
-				$('#scene1-first').css('-webkit-animation', 'swooshUpFirst 0.55s linear forwards');
-				$('#scene1-second').css('-webkit-animation', 'swooshUpRest 0.7s linear forwards');
-				$('#scene1-third').css('-webkit-animation', 'swooshUpRest 1.05s linear forwards');
-				// bring arrow back
-				$('#arrow svg').css({'opacity': 0, 'top': 90+100*current_scene+'vh', '-webkit-animation': 'fadeIn 0.6s linear 1.2s forwards'});
+		// Check if user is scrolling down
+		if (current_scroll > last_scroll) {
+			if (current_scroll >= current_scene * $(window).height() && current_scroll <= current_scene * $(window).height() + 20) {
+				
+				// initializeScene(current_scene); // don't abstract this because it may load after the handler (I could just put it in an earlier file)
+				if (current_scene === 1) {
+					$('#scene1-first').css('-webkit-animation', 'swooshUpFirst 0.55s linear forwards');
+					$('#scene1-second').css('-webkit-animation', 'swooshUpRest 0.7s linear forwards');
+					$('#scene1-third').css('-webkit-animation', 'swooshUpRest 1.05s linear forwards');
+					// bring arrow back after a delay
+					$('#arrow svg').css({'opacity': 0, 'top': 90+100*current_scene+'vh', '-webkit-animation': 'fadeIn 0.6s linear 1.2s forwards'});
+				} else if (current_scene === 2) {
+					// hide previous scene content
+					$('#scene'+(current_scene-1)).children().css('opacity', '0');
+				}
+				// increment scene
+				current_scene++;
+			}
+		} else {
+			// reinitialize animations
+			if (current_scene-1 === 1) { // currently on scene 1
+				console.log('hi');
+				// only bring arrow back
+				$('#arrow svg').css({'-webkit-animation': '', 'opacity': 1, 'top': '90vh'});
+				// check if animations need to reset
+				if (current_scroll <= (current_scene-2) * $(window).height() + 20) {
+					// decrement current scene
+					current_scene--;
+					// show scene's children again and remove animation
+					$('#scene'+current_scene).children().css({'opacity': '1', '-webkit-animation': ''});
+					// reset style ** NOTE: this is hardcoded right now...
+					$('#scene1-first').css('margin-top', '125vh');
+				}
 			}
 		}
+		// update last scroll
+		last_scroll = current_scroll;
 		/*
 		When user scrolls to next scene, previous scene content goes to opacity: 0
 		When user scrolls back up, previous scene content reverts to original styling and then runs

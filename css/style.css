@@ -26,11 +26,11 @@ section {
 	height: 100vh;
 }
 
-/* This will need a load of media queries later */
-/*.carousel {
-	position: relative;
-	width: 100%;
-}*/
+.story {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .carousel img { /* This isn't consolidated in case I want to make the slideshow inside of a div like spacex */
 	position: absolute;
@@ -120,20 +120,6 @@ a/t*100% = 20%
 
 /************** ANIMATIONS **************/
 
-#scene1 {
-	/*position: absolute;*/
-	display: block;
-	/*padding-top: 25vh;*/
-
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.scene-wrapper {
-	position: absolute;
-	/*top: 25vh;*/
-}
-
 /* This moves the scene children into place */
 @-webkit-keyframes swooshUpFirst {
 	0% { margin-top: 125vh; }
@@ -175,17 +161,10 @@ a/t*100% = 20%
 }
 
 #arrow svg {
-	
 	position: absolute;
 	top: 90vh;
 	/*width: 70px;
 	height: 30px;*/
-
-}
-
-/* Remember that this is only true the first time around */
-#arrow svg line {
-	/*-webkit-animation: fadeIn 2s linear forwards;*/
 }
 
 /* Remember that 'forwards' makes animations permanent */
